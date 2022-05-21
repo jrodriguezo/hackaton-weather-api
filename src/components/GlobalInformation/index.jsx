@@ -6,7 +6,10 @@ function GlobalInformation({ region, country, localTime, celsiusTemperature }) {
     <section className="global-info">
       <h1>{region}</h1>
       <h2>{country}</h2>
-      <h3>{celsiusTemperature} ºC</h3>
+      <div className="temperature">
+        <h3>{celsiusTemperature}</h3>
+        <span>&deg;C</span>
+      </div>
       <small>{localTime}</small>
     </section>
   );
