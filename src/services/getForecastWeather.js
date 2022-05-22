@@ -2,9 +2,12 @@ import React from "react";
 import { options, paths } from "./settings";
 
 function getForecastWeather({ search }) {
-  fetch(`${paths.FORECAST_WEATHER}?q=${search}&days=3`, options)
+  return fetch(`${paths.FORECAST_WEATHER}?q=${search}&days=3`, options)
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then(({forecast}) => {
+      const { forecastday } = forecast
+      return forecastday
+    })
     .catch((err) => console.error(err));
 }
 

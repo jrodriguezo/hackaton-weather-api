@@ -7,8 +7,7 @@ function getRealtimeWeather({ search }) {
     .then((response) => response.json())
     .then(({ location, current }) => {
       const { name, region, country, localtime } = location;
-      const { temp_c, wind_kph, wind_dir, is_day, humidity, condition } =
-        current;
+      const { temp_c, wind_kph, wind_dir, is_day, humidity, condition } = current;
       const { text, icon } = condition;
       return {
         location: name,

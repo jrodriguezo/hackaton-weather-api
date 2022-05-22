@@ -1,26 +1,36 @@
 import React, { useState, useEffect } from "react";
+import ForecastInformation from "../../components/ForecastInformation/index.jsx";
 import GlobalInformation from "../../components/GlobalInformation/index.jsx";
+import getForecastWeather from "../../services/getForecastWeather.js";
 import getRealtimeWeather from "../../services/getRealtimeWeather.js";
 
 function WeatherResults({ params }) {
   const [weatherData, setWeatherData] = useState([]);
+  const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (params.keyword !== "") {
+    const {keyword} = params
+    if (keyword !== "") {
       setLoading(true);
-      getRealtimeWeather({ search: params.keyword }).then((dataRetrieved) => {
+      getRealtimeWeather({ search: keyword }).then((dataRetrieved) => {
         setWeatherData(dataRetrieved);
-        setLoading(false);
       });
+      getForecastWeather({ search: keyword }).then((dataRetrieved) => {
+        setForecastData(dataRetrieved);
+        console.log(dataRetrieved)
+        setLoading(false);
+      })
+      
     }
-  }, [params.keyword]);
+  }, [params]);
 
   if (loading) return <h1>Loading your data...</h1>;
 
   return (
     <>
       <GlobalInformation weatherData={weatherData} />
+      <ForecastInformation forecastData={forecastData} />
     </>
   );
 }
