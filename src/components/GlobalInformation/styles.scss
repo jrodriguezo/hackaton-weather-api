@@ -48,19 +48,17 @@
     position: relative;
 
     img{
-        height: 100px;
+        height:70px;
         width: auto;
 
     }
 
     .text {
-        position: absolute;
-        top: 0;
-        left: 20%;
-        opacity: 0.3;
-        font-size: 100px;
-        transform: rotate(-90deg);
+        opacity: 0.5;
+        font-size: 20px;
         text-transform: uppercase;
+        margin: 0;
+        padding: 0;
       }
   }
 }
