@@ -1,0 +1,31 @@
+.location-searcher {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  h1 {
+    font-size: 60px;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .ant-input-wrapper {
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 36px;
+
+    .ant-btn-primary {
+      background-color: #1d71f2;
+      border-color: white;
+    }
+  }
+  .ant-btn-text {
+    font-size: 18px;
+    color: white;
+    max-width: 300px;
+  }
+}

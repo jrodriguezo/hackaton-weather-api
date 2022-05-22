@@ -1,19 +1,26 @@
 import React from "react";
+import { LeftOutlined } from '@ant-design/icons';
+import { Link } from "wouter";
 import "./styles.scss";
 
 function GlobalInformation({ weatherData }) {
-  const { region, country, celsiusTemperature, currentCondition, icon } =
+  const { location, region, country, celsiusTemperature, currentCondition, icon } =
     weatherData;
+    
   return (
     <section className="global-info">
-      <h1>{region}</h1>
-      <h2>{country}</h2>
+      <Link to='/'>
+        <LeftOutlined /> Go back
+      </Link>
+      <h1>{location}</h1>
+      <h2>{region}</h2>
+      <h3>{country}</h3>
       <div className="temperature">
         <p>{celsiusTemperature}</p>
         <span>&deg;C</span>
       </div>
-      <p>Today's weather is</p>
       <div className="condition">
+        <p className="description">Today's weather is</p>
         <img src={icon} alt="weather icon" />
         <p className="text">{currentCondition}</p>
       </div>

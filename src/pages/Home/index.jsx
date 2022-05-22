@@ -1,23 +1,47 @@
-import React, { useState, useEffect } from "react";
-import GlobalInformation from "../../components/GlobalInformation/index.jsx";
-import getForecastWeather from "../../services/getForecastWeather.js";
-import getRealtimeWeather from "../../services/getRealtimeWeather.js";
+import React, { useEffect } from "react";
+import { useLocation } from "wouter";
+import { Input, Button } from "antd";
+import useGeolocation from "react-hook-geolocation";
+import "antd/dist/antd.css";
+import "./styles.scss";
 
 function Home() {
-  const [weatherData, setWeatherData] = useState([]);
-  const [location, newLocation] = useState('Texas')
+  const geolocation = useGeolocation();
+  const [, pushLocation] = useLocation();
+  const { Search } = Input;
 
-  useEffect(() => {
-    //getForecastWeather({ search: "Madrid" });
-    getRealtimeWeather({ search: location }).then((dataRetrieved) =>
-      setWeatherData(dataRetrieved)
-    );
-  }, []);
+  const onSearch = (keyword) => {
+    if (keyword !== "") {
+      pushLocation(`/search/${keyword}`);
+    }
+  };
+
+  const handleClick = () => {
+    if (
+      !geolocation.error &&
+      geolocation.latitude !== null &&
+      geolocation.longitude !== null
+    ) {
+      const coordinatesFromGeolocation = `${geolocation.latitude},${geolocation.longitude}`;
+      return pushLocation(`/search/${coordinatesFromGeolocation}`);
+      // localStorage.setItem("geolocation", coordinatesFromGeolocation);
+    }
+    if(geolocation.error){
+      return alert(`To use this feature, you must enable the permissions of browser's localization.`)
+    }
+    return alert(`Something was wrong!`)
+  };
 
   return (
-    <>
-      <GlobalInformation weatherData={weatherData} />
-    </>
+    <div className="location-searcher">
+      <h1>Global Weather Reports</h1>
+      <Search
+        placeholder="Introduce a location..."
+        onSearch={onSearch}
+        enterButton
+      />
+      <Button type="text" onClick={handleClick}>Use my current location</Button>
+    </div>
   );
 }
 

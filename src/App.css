@@ -1,8 +1,17 @@
 /* https://www.schemecolor.com/apple-weather-app-icon-2017-colors.php */
 
 .App {
-  background-color: #1D71F2;
+  background-color: #1d71f2;
   box-sizing: border-box;
   color: white;
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
 }
