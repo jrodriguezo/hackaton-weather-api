@@ -1,15 +1,27 @@
-.location-searcher {
+.home-page {
   display: flex;
+  padding: 30px;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 100vh;
 
+  .searcher-buttons{
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+
+    .location-requiered{
+      width: 100%;
+    }
+  }
+
   h1 {
     font-size: 60px;
     text-align: center;
     line-height: 50px;
+    margin-bottom: 10rem;
   }
 
   .ant-input-wrapper {
@@ -17,15 +29,19 @@
     max-width: 300px;
     margin: 0 auto;
     margin-top: 36px;
+    background-color: #282828;
 
     .ant-btn-primary {
-      background-color: #1d71f2;
+      background-color: #282828;
       border-color: white;
     }
   }
   .ant-btn-text {
+    margin-top: 5px;
+    display: block;
     font-size: 18px;
+    height: 36px;
     color: white;
-    max-width: 300px;
+    background-color: #1761B0;
   }
 }

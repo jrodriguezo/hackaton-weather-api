@@ -60,16 +60,25 @@
     }
   }
 
+  .description{
+    font-size: 18px;
+  }
+
+  .info-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
   .condition {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-
-    .description{
-      font-size: 18px;
-    }
+    padding: 10px;
+    background-color: #282828;
+    border-radius: 10px;
 
     img {
       height: 70px;

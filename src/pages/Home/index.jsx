@@ -26,22 +26,30 @@ function Home() {
       return pushLocation(`/search/${coordinatesFromGeolocation}`);
       // localStorage.setItem("geolocation", coordinatesFromGeolocation);
     }
-    if(geolocation.error){
-      return alert(`To use this feature, you must enable the permissions of browser's localization.`)
+    if (geolocation.error) {
+      return alert(
+        `To use this feature, you must enable the permissions of browser's localization.`
+      );
     }
-    return alert(`Something was wrong!`)
+    return alert(`Something was wrong!`);
   };
 
   return (
-    <div className="location-searcher">
-      <h1>Global Weather Reports</h1>
-      <Search
-        placeholder="Introduce a location..."
-        onSearch={onSearch}
-        enterButton
-      />
-      <Button type="text" onClick={handleClick}>Use my current location</Button>
-    </div>
+    <section className="home-page">
+      <h1>Global <br/> Weather</h1>
+      <h2>Hi.</h2>
+      <h2>How'd you like to check the weather?</h2>
+      <div className="searcher-buttons">
+        <Search
+          placeholder="Introduce a location..."
+          onSearch={onSearch}
+          enterButton
+        />
+        <Button type="text" onClick={handleClick}>
+          CURRENT LOCATION
+        </Button>
+      </div>
+    </section>
   );
 }
 
