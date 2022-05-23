@@ -44,4 +44,9 @@
     color: white;
     background-color: #1761B0;
   }
+
+  .ant-input-wrapper >input::placeholder {
+    color: #282828;
+ }
+
 }
