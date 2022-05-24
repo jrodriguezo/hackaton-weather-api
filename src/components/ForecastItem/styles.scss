@@ -8,8 +8,8 @@
   border-radius: 10px;
   opacity: 0.9;
 
-  &:hover{
-    background-color: rgba(#282828, .7);
+  &:hover {
+    background-color: rgba(#282828, 0.7);
     transition: all 300ms ease-in-out;
     cursor: pointer;
   }
@@ -24,15 +24,15 @@
     padding: 0;
   }
 
-  img{
+  img {
     height: 40px;
   }
 
-  .temperature{
-    .max{
+  .temperature {
+    .max {
       color: #f0f0f0;
     }
-    .min{
+    .min {
       color: #228dff;
     }
   }

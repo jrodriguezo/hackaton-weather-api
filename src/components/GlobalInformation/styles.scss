@@ -9,8 +9,8 @@
     justify-content: flex-end;
     align-items: center;
     color: white;
-    
-    span{
+
+    span {
       margin-right: 10px;
     }
   }
@@ -60,11 +60,11 @@
     }
   }
 
-  .description{
+  .description {
     font-size: 18px;
   }
 
-  .info-container{
+  .info-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;

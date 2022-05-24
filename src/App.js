@@ -1,18 +1,23 @@
-import { Route, Switch } from "wouter";
-import Home from "./pages/Home";
-import WeatherResults from "./pages/WeatherResults";
-import "./App.css";
+import { Route, Switch } from 'wouter'
+import Home from './pages/Home'
+import WeatherResults from './pages/WeatherResults'
+import HistoricalResults from './pages/HistoricalResults'
+import { WeatherContextProvider } from './context/WeatherContext'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <Switch>
-        <Route component={Home} path="/" />
-        <Route component={WeatherResults} path="/search/:keyword" />
-        {/* <Route component={ErrorPage} path="/:rest*" /> */}
-      </Switch>
+    <div className='App'>
+      <WeatherContextProvider>
+        <Switch>
+          <Route component={Home} path='/' />
+          <Route component={WeatherResults} path='/search/:keyword' />
+          <Route component={HistoricalResults} path='/historical/:day' />
+          {/* <Route component={ErrorPage} path="/:rest*" /> */}
+        </Switch>
+      </WeatherContextProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
