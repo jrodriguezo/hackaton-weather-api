@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "wouter";
 import { Input, Button } from "antd";
 import useGeolocation from "react-hook-geolocation";
@@ -43,6 +43,7 @@ function Home() {
         <Search
           placeholder="Introduce a location..."
           onSearch={onSearch}
+          size="large"
           enterButton
         />
         <Button type="text" onClick={handleClick}>

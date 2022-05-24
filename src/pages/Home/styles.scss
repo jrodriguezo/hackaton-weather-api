@@ -44,6 +44,11 @@
     height: 36px;
     color: white;
     background-color: #1761B0;
+
+    &:hover{
+      background-color: rgba(#1761B0, .7);
+      transition: all 300ms ease-in-out;
+    }
   }
 
   .ant-input-wrapper >input::placeholder {

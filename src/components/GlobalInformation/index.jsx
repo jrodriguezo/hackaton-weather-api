@@ -2,7 +2,7 @@ import React from "react";
 import { LeftOutlined } from "@ant-design/icons";
 import { Link } from "wouter";
 import "./styles.scss";
-import { WiHumidity, WiStrongWind, WiThermometer, WiThermometerExterior } from "weather-icons-react";
+import { WiHumidity, WiStrongWind, WiThermometer } from "weather-icons-react";
 
 function GlobalInformation({ weatherData }) {
   const {
