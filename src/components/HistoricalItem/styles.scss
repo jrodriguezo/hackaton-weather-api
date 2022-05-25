@@ -1,0 +1,11 @@
+.historical-item{
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    //display: grid;
+    //grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    background-color: #282828;
+}

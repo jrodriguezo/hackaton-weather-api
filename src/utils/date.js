@@ -7,3 +7,13 @@ export const getWeekday = (date) => {
     new Date(date).getDay()
   ];
 };
+
+export const getLongWeekday = (date) => {
+  return ["SUNNY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"][
+    new Date(date).getDay()
+  ];
+};
+
+export const getHour = (date) => {
+  return date.split(' ')[1]
+}
