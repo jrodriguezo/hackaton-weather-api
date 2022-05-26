@@ -28,11 +28,11 @@ function GlobalInformation({ weatherData }) {
         </div>
         <div className='condition'>
           <WiThermometer size={70} color='#D2292D' />
-          <p className='text'>{`Feels like ${feelslike}`}</p>
+          <p className='text'>{`Feels like ${feelslike}º`}</p>
         </div>
         <div className='condition'>
           <WiHumidity size={70} color='#1761B0' />
-          <p className='text'>{`${humidity} %`}</p>
+          <p className='text'>{`Humidity ${humidity}%`}</p>
         </div>
         <div className='condition'>
           <WiStrongWind size={70} color='#f0f0f0' />

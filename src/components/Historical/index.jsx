@@ -38,8 +38,8 @@ function Historical({ dayForecastData }) {
         <div className='date'>
           <h2 className='title'>{avgtemp_c}º</h2>
           <div>
-          <p>{getLongWeekday(date)}</p>
-          <p>{getDay(date)}</p>
+            <p>{getLongWeekday(date)}</p>
+            <p>{getDay(date)}</p>
           </div>
         </div>
         <div className='resume'>
@@ -55,25 +55,35 @@ function Historical({ dayForecastData }) {
             {willSnow}
             <p>{daily_chance_of_snow}% change of snow.</p>
           </div>
+        </div>
+        <div className='other-resume'>
           <div className='info'>
             <WiSunrise size={40} />
             <p className='title'>Sunrise</p>
             <p>{sunrise}</p>
           </div>
           <div className='info'>
-            <WiSunset size={40} />
-            <p className='title'>Sunset</p>
-            <p>{sunset}</p>
-          </div>
-          <div className='info'>
             <p>UV index</p>
             <p className='title'>{UVStatus}</p>
             <p>{uv}</p>
           </div>
+          <div className='info'>
+            <WiSunset size={40} />
+            <p className='title'>Sunset</p>
+            <p>{sunset}</p>
+          </div>
         </div>
-        {dayForecastData.hour.map(data => (
-          <HistoricalItem data={data} />
-        ))}
+        <div className='forecast-per-hour'>
+          <article className='historical-item header'>
+            <p>Time</p>
+            <p>Temp</p>
+            <p>Weather</p>
+            <p>Status</p>
+          </article>
+          {dayForecastData.hour.map(data => (
+            <HistoricalItem data={data} />
+          ))}
+        </div>
       </section>
     </>
   )

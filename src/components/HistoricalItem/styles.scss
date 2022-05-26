@@ -1,11 +1,32 @@
-.historical-item{
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    //display: grid;
-    //grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    background-color: #282828;
+.historical-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  //display: grid;
+  //grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  background-color: #282828;
+  margin-bottom: 2px;
+
+  &.header {
+    text-transform: uppercase;
+    opacity: 0.6;
+    font-weight: 500;
+    padding: 10px 18px;
+  }
+
+  img{
+      margin: 0 auto;
+  }
+
+  &:first-child {
+    margin-bottom: unset;
+  }
+
+  &:last-child {
+    border-bottom: unset;
+  }
 }
