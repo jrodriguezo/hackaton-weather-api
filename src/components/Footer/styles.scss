@@ -1,0 +1,17 @@
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  opacity: 0.7;
+  color: white;
+
+  span {
+    margin-left: 10px;
+    color: white;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
+}

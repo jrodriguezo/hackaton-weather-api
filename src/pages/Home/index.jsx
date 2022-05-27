@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'wouter'
 import { Input, Button } from 'antd'
+import Footer from '../../components/Footer/index.jsx'
 import useGeolocation from 'react-hook-geolocation'
 import 'antd/dist/antd.css'
 import './styles.scss'
@@ -12,7 +13,7 @@ function Home() {
 
   const onSearch = keyword => {
     if (keyword !== '') {
-      localStorage.setItem("geolocation", keyword);
+      localStorage.setItem('geolocation', keyword)
       pushLocation(`/search/${keyword}`)
     }
   }
@@ -20,7 +21,7 @@ function Home() {
   const handleClick = () => {
     if (!geolocation.error && geolocation.latitude !== null && geolocation.longitude !== null) {
       const coordinatesFromGeolocation = `${geolocation.latitude},${geolocation.longitude}`
-      localStorage.setItem("geolocation", coordinatesFromGeolocation);
+      localStorage.setItem('geolocation', coordinatesFromGeolocation)
       return pushLocation(`/search/${coordinatesFromGeolocation}`)
     }
     if (geolocation.error) {
@@ -42,6 +43,7 @@ function Home() {
           CURRENT LOCATION
         </Button>
       </div>
+      <Footer />
     </section>
   )
 }
