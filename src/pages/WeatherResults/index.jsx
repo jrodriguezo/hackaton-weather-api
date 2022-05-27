@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import ForecastInformation from '../../components/ForecastInformation/index.jsx'
 import GlobalInformation from '../../components/GlobalInformation/index.jsx'
+import Loading from '../../components/Loading/index.jsx'
 import WeatherContext from '../../context/WeatherContext.js'
 import getForecastWeather from '../../services/getForecastWeather.js'
 import getRealtimeWeather from '../../services/getRealtimeWeather.js'
@@ -25,7 +26,7 @@ function WeatherResults({ params }) {
     }
   }, [params])
 
-  if (loading) return <h1>Loading your data...</h1>
+  if (loading) return <Loading />
 
   return (
     <>
