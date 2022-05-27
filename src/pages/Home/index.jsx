@@ -12,6 +12,7 @@ function Home() {
 
   const onSearch = keyword => {
     if (keyword !== '') {
+      localStorage.setItem("geolocation", keyword);
       pushLocation(`/search/${keyword}`)
     }
   }
@@ -19,15 +20,15 @@ function Home() {
   const handleClick = () => {
     if (!geolocation.error && geolocation.latitude !== null && geolocation.longitude !== null) {
       const coordinatesFromGeolocation = `${geolocation.latitude},${geolocation.longitude}`
+      localStorage.setItem("geolocation", coordinatesFromGeolocation);
       return pushLocation(`/search/${coordinatesFromGeolocation}`)
-      // localStorage.setItem("geolocation", coordinatesFromGeolocation);
     }
     if (geolocation.error) {
       return alert(`To use this feature, you must enable the permissions of browser's localization.`)
     }
     return alert(`Something was wrong!`)
   }
-
+  /* https://github.com/sickdyd/react-search-autocomplete */
   return (
     <section className='home-page'>
       <h1>

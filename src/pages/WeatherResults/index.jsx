@@ -12,14 +12,14 @@ function WeatherResults({ params }) {
 
   useEffect(() => {
     const { keyword } = params
-    if (keyword !== '') {
+    const keywordToUse = localStorage.getItem('geolocation') || keyword
+    if (keywordToUse !== '') {
       setLoading(true)
-      getRealtimeWeather({ search: keyword }).then(dataRetrieved => {
+      getRealtimeWeather({ search: keywordToUse }).then(dataRetrieved => {
         setWeatherData(dataRetrieved)
       })
-      getForecastWeather({ search: keyword }).then(dataRetrieved => {
+      getForecastWeather({ search: keywordToUse }).then(dataRetrieved => {
         setForecastData(dataRetrieved)
-        console.log(dataRetrieved)
         setLoading(false)
       })
     }

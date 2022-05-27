@@ -13,7 +13,6 @@ function Historical({ dayForecastData }) {
   const { daily_chance_of_rain, daily_chance_of_snow, daily_will_it_rain, daily_will_it_snow, uv, avgtemp_c } = day
   const willRain = daily_will_it_rain ? <BiCheck size={40} /> : <BiX size={40} color='#D2292D' />
   const willSnow = daily_will_it_snow ? <BiCheck size={40} /> : <BiX size={40} color='#D2292D' />
-  console.log(dayForecastData)
 
   let UVStatus
   if (uv < 3) {
@@ -31,7 +30,7 @@ function Historical({ dayForecastData }) {
   return (
     <>
       <section className='historical-data'>
-        <Link to='/search/Madrid'>
+        <Link to={`/search/${localStorage.getItem('geolocation')}`}>
           <LeftOutlined /> Go back
         </Link>
         <h1>Historical</h1>
