@@ -1,5 +1,5 @@
 import React from 'react'
-import { LeftOutlined } from '@ant-design/icons'
+import { BiSearch } from "react-icons/bi";
 import { Link } from 'wouter'
 import './styles.scss'
 import { WiHumidity, WiStrongWind, WiThermometer } from 'weather-icons-react'
@@ -11,7 +11,7 @@ function GlobalInformation({ weatherData }) {
   return (
     <section className='global-info'>
       <Link to='/'>
-        <LeftOutlined /> Go back
+        <BiSearch /> Searcher
       </Link>
       <h1>{location}</h1>
       <h2>{region}</h2>
