@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useLocation } from 'wouter'
 import { Input, Button, message, Alert } from 'antd'
 import useGeolocation from 'react-hook-geolocation'
-import Footer from '../../components/Footer/index.jsx'
+import SocialMedia from '../../components/SocialMedia/index.jsx'
 import WeatherContext from '../../context/WeatherContext.js'
 import 'antd/dist/antd.css'
 import './styles.scss'
@@ -54,7 +54,7 @@ function Home() {
           CURRENT LOCATION
         </Button>
       </div>
-      <Footer />
+      <SocialMedia />
     </section>
   )
 }

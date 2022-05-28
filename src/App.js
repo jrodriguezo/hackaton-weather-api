@@ -4,6 +4,7 @@ import WeatherResults from './pages/WeatherResults'
 import HistoricalResults from './pages/HistoricalResults'
 import { WeatherContextProvider } from './context/WeatherContext'
 import './App.css'
+import ErrorPage from './pages/ErrorPage'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route component={Home} path='/' />
           <Route component={WeatherResults} path='/search/:keyword' />
           <Route component={HistoricalResults} path='/historical/:day' />
-          {/* <Route component={ErrorPage} path="/:rest*" /> */}
+          <Route component={ErrorPage} path="/:rest*" />
         </Switch>
       </WeatherContextProvider>
     </div>

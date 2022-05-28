@@ -2,7 +2,7 @@ import React from 'react'
 import { FiGithub } from 'react-icons/fi'
 import './styles.scss'
 
-function Footer() {
+function SocialMedia() {
   return (
     <a href='https://github.com/jrodriguezo' className='social-media'>
       <FiGithub size={20} color='white' />
@@ -11,4 +11,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default SocialMedia

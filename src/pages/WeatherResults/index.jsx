@@ -30,7 +30,7 @@ function WeatherResults({ params }) {
           return pushLocation('/')
         })
     }
-  }, [params, setForecastData, setWeatherData])
+  }, [params.keyword])
 
   if (loading) return <Loading />
 
