@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { useLocation } from 'wouter'
 import ForecastInformation from '../../components/ForecastInformation/index.jsx'
 import GlobalInformation from '../../components/GlobalInformation/index.jsx'
 import Loading from '../../components/Loading/index.jsx'
@@ -8,7 +9,8 @@ import getRealtimeWeather from '../../services/getRealtimeWeather.js'
 
 function WeatherResults({ params }) {
   const [weatherData, setWeatherData] = useState([])
-  const { forecastData, setForecastData } = useContext(WeatherContext)
+  const [, pushLocation] = useLocation()
+  const { forecastData, setForecastData, setThereIsAnError } = useContext(WeatherContext)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -16,15 +18,18 @@ function WeatherResults({ params }) {
     const keywordToUse = localStorage.getItem('geolocation') || keyword
     if (keywordToUse !== '') {
       setLoading(true)
-      getRealtimeWeather({ search: keywordToUse }).then(dataRetrieved => {
-        setWeatherData(dataRetrieved)
-      })
-      getForecastWeather({ search: keywordToUse }).then(dataRetrieved => {
-        setForecastData(dataRetrieved)
-        setLoading(false)
-      })
+      Promise.all([getRealtimeWeather({ search: keywordToUse }), getForecastWeather({ search: keywordToUse })])
+        .then(([weatherResponse, forecastResponse]) => {
+          setWeatherData(weatherResponse)
+          setForecastData(forecastResponse)
+          setLoading(false)
+        })
+        .catch(err => {
+          setThereIsAnError(true)
+          return pushLocation('/')
+        })
     }
-  }, [params])
+  }, [params, setForecastData, setWeatherData])
 
   if (loading) return <Loading />
 

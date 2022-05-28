@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLocation } from 'wouter'
-import { Input, Button } from 'antd'
-import Footer from '../../components/Footer/index.jsx'
+import { Input, Button, message, Alert } from 'antd'
 import useGeolocation from 'react-hook-geolocation'
+import Footer from '../../components/Footer/index.jsx'
+import WeatherContext from '../../context/WeatherContext.js'
 import 'antd/dist/antd.css'
 import './styles.scss'
 
 function Home() {
+  const SECONDS_SHOWING_ERROR = 4
   const geolocation = useGeolocation()
   const [, pushLocation] = useLocation()
+  const { thereIsAnError, setThereIsAnError } = useContext(WeatherContext)
   const { Search } = Input
 
   const onSearch = keyword => {
+    setThereIsAnError(false)
     if (keyword !== '') {
       localStorage.setItem('geolocation', keyword)
       pushLocation(`/search/${keyword}`)
     }
+  }
+
+  if (thereIsAnError) {
+    setTimeout(() => {
+      setThereIsAnError(false)
+    }, [SECONDS_SHOWING_ERROR * 1000])
   }
 
   const handleClick = () => {
@@ -29,7 +39,7 @@ function Home() {
     }
     return alert(`Something was wrong!`)
   }
-  /* https://github.com/sickdyd/react-search-autocomplete */
+
   return (
     <section className='home-page'>
       <h1>
@@ -38,7 +48,8 @@ function Home() {
       <h2>Hi.</h2>
       <h2>How'd you like to check the weather?</h2>
       <div className='searcher-buttons'>
-        <Search placeholder='Introduce a location...' onSearch={onSearch} size='large' enterButton />
+        <Search placeholder='Search for a town or city...' onSearch={onSearch} size='large' enterButton />
+        {thereIsAnError && <Alert type='error' message='Oops! There was an error...' banner />}
         <Button type='text' onClick={handleClick}>
           CURRENT LOCATION
         </Button>

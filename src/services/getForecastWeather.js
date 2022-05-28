@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import WeatherContext from '../context/WeatherContext'
 import { options, paths } from './settings'
 
 function getForecastWeather({ search }) {
@@ -8,7 +9,10 @@ function getForecastWeather({ search }) {
       const { forecastday } = forecast
       return forecastday
     })
-    .catch(err => console.error(err))
+    .catch(err => {
+      console.error(err)
+      throw new Error('There was an error retrieving forecast data');
+    })
 }
 
 export default getForecastWeather

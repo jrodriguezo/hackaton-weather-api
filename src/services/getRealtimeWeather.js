@@ -24,7 +24,10 @@ function getRealtimeWeather({ search }) {
         feelslike: feelslike_c
       }
     })
-    .catch(err => console.error(err))
+    .catch(err => {
+      console.error(err)
+      throw new Error('There was an error retrieving realtime weather data');
+    })
 }
 
 export default getRealtimeWeather
