@@ -25,6 +25,7 @@ function WeatherResults({ params }) {
           setLoading(false)
         })
         .catch(err => {
+          console.error(err)
           setThereIsAnError(true)
           return pushLocation('/')
         })
