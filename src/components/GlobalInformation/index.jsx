@@ -1,8 +1,8 @@
 import React from 'react'
 import { BiSearch } from "react-icons/bi";
 import { Link } from 'wouter'
-import './styles.scss'
 import { WiHumidity, WiStrongWind, WiThermometer } from 'weather-icons-react'
+import './styles.scss'
 
 function GlobalInformation({ weatherData }) {
   const { location, region, country, celsiusTemperature, currentCondition, icon, windVelocity, humidity, feelslike } =
