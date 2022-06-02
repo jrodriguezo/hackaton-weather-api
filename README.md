@@ -2,11 +2,11 @@
 
 Project that retrieves weather data from an API, made in React and SASS for styling.
 
-[Check out demo here!](https://global-weather-web.netlify.app/)
+### :rocket: [Check out demo here!](https://global-weather-web.netlify.app/)
 
-- It is mobile first
+### :hear_no_evil: [Video review by @midudev]()
 
-## ⚠️ Requirements (in spanish)
+### ⚠️ Requirements (in spanish)
 
 - 1 Registrarse en Rapid-Api
 - 2 Buscar WeatherApi.com (https://rapidapi.com/weatherapi/api/weatherapi-com/)
