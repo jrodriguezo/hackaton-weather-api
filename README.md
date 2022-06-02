@@ -4,7 +4,7 @@ Project that retrieves weather data from an API, made in React and SASS for styl
 
 ### :rocket: [Check out demo here!](https://global-weather-web.netlify.app/)
 
-### :hear_no_evil: [Video review by @midudev]()
+### :hear_no_evil: [Video review by @midudev](https://www.twitch.tv/videos/1315914232?t=01h12m24s)
 
 ### ⚠️ Requirements (in spanish)
 
